@@ -1,0 +1,93 @@
+@model CMS.Models.StudentCollege
+
+@{
+    ViewData["Title"] = "createStudents";
+}
+
+<br><br>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="createStudents">
+            <div asp-validation-summary="ModelOnly" class="text-danger"> </div>
+            <div class="form-group row">
+                <label asp-for="Email" class="control-label">Email&nbsp; &nbsp; &nbsp; &nbsp;</label>
+                <div class="col-sm-10">
+                    <input asp-for="Email" class="form-control" type="text" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Name" class="control-label">Name&nbsp; &nbsp; &nbsp; &nbsp;</label>
+                <div class="col-sm-10">
+                    <input asp-for="Name" class="form-control" type="text" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Birthdate" class="control-label">Birthdate&nbsp; &nbsp; &nbsp; &nbsp;</label>
+                <div class="col-sm-10">
+                    <input asp-for="Birthdate" class="form-control" type="datetime-local" />
+                    <span asp-validation-for="Birthdate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Rollno" class="control-label">Rollno&nbsp; &nbsp; &nbsp; &nbsp;</label>
+                <div class="col-sm-10">
+                    <input asp-for="Rollno" class="form-control" />
+                    <span asp-validation-for="Rollno" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Address" class="control-label">Address&nbsp; &nbsp; &nbsp; &nbsp;</label>
+                <div class="col-sm-10">
+                    <input asp-for="Address" class="form-control" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Degree" class="control-label">Degree&nbsp; &nbsp; &nbsp; &nbsp;</label>
+                <div class="col-sm-10">
+                    <select asp-for="Degree" class="form-control" type="text">
+                    <option value="UG" >UG</option >
+                    <option value="PG" >PG</option >
+                </select>
+                <span asp-validation-for="Degree" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Department" class="control-label">Department&nbsp; &nbsp; &nbsp; &nbsp;</label>
+                <div class="col-sm-10">
+                    <select asp-for="Department" class="form-control" type="text">
+                    <option value="CSE" >CSE</option >
+                    <option value="ECE" >ECE</option >
+                    <option value="EEE" >EEE</option >
+                </select>
+                <span asp-validation-for="Department" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Batch" class="control-label">Batch&nbsp; &nbsp; &nbsp; &nbsp;</label>
+                <div class="col-sm-10">
+                    <input asp-for="Batch" class="form-control" />
+                    <span asp-validation-for="Batch" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Cgpa" class="control-label">Cgpa&nbsp; &nbsp; &nbsp; &nbsp;</label>
+                <div class="col-sm-10">
+                    <input asp-for="Cgpa" class="form-control" />
+                    <span asp-validation-for="Cgpa" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

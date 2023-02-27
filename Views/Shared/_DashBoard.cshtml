@@ -1,0 +1,81 @@
+@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor;
+
+
+@{
+    ViewBag.Data = @HttpContextAccessor.HttpContext.Session.GetString("Name");
+    ViewBag.Email = @HttpContextAccessor.HttpContext.Session.GetString("Email");
+    ViewBag.Type = HttpContextAccessor.HttpContext.Session.GetString("Type");
+}
+
+@if(ViewBag.Type == "admin")
+{
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link "  asp-action="details" asp-controller="Login" asp-route-email=@ViewBag.Email>User Details</a>
+    </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Manage Users
+    </a>
+    <ul class="dropdown-menu">
+      <li><a id="manage" class="nav-link text-dark" asp-controller="Login" asp-action="ShowUsers"> All Users </a></li>
+      <li><a id="manage" class="nav-link text-dark" asp-controller="Login" asp-action="register"> Add a User </a></li>         
+    </ul>
+  </li>
+  <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle text-dark" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Library
+      </a>
+      <ul class="dropdown-menu">
+        <li><a id="manage" class="nav-link text-dark" asp-controller="Admin" asp-action="showAdminBooks"> List of Books </a></li>
+        <li><a id="manage" class="nav-link text-dark" asp-controller="Admin" asp-action="addBooks"> Add a Book </a></li>         
+      </ul>
+    </li>
+  
+</ul>
+}
+else if(ViewBag.Type == "lecturer")
+{
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link "  asp-action="details" asp-controller="Login" asp-route-email=@ViewBag.Email>User Details</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Manage Students
+      </a>
+      <ul class="dropdown-menu">
+        <li><a id="manage" class="nav-link text-dark" asp-controller="Lecturer" asp-action="showStudents"> All Students </a></li>
+        <li><a id="manage" class="nav-link text-dark" asp-controller="Lecturer" asp-action="createStudents"> Add a Student </a></li>         
+      </ul>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Grades
+      </a>
+      <ul class="dropdown-menu">
+        <li><a id="manage" class="nav-link text-dark" asp-controller="Lecturer" asp-action="showGrades"> List Grades </a></li>
+        <li><a id="manage" class="nav-link text-dark" asp-controller="Lecturer" asp-action="createGrades"> Grade a student </a></li>         
+      </ul>
+    </li>
+    
+  </ul>
+}
+else if(ViewBag.Type == "student")
+{
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link "  asp-action="details" asp-controller="Login" asp-route-email=@ViewBag.Email>User Details</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle text-dark" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Library
+      </a>
+      <ul class="dropdown-menu">
+        <li><a id="manage" class="nav-link text-dark" asp-controller="Student" asp-action="showBooks"> List of Books </a></li>
+        <li><a id="manage" class="nav-link text-dark" asp-controller="Student" asp-action="myBooks"> Issued Books </a></li>         
+      </ul>
+    </li>
+  </ul>
+}

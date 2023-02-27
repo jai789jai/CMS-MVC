@@ -1,0 +1,35 @@
+@model IEnumerable<CMS.Models.UserCollege>
+
+
+<nav class="navbar">
+    
+  <form class="form-inline" asp-action="ShowUsers" asp-controller="Login">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name='keyword'>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+  
+</nav>
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Type</td>
+            <td>
+                 @* <a asp-controller="Login" asp-action="details" asp-route-email="@item.Email">More Details</a> *@
+                @Html.ActionLink("More Details","detailUser",new {id=@item.Email},new {@class="btn"})
+            </td>
+            <td>
+                <a asp-action="edit" asp-route-id="@item.Email">Edit Details</a>
+            </td>
+            <td>
+                
+                <a asp-action="delete" asp-route-id="@item.Email">Delete User</a>
+            </td>
+        </tr>
+    }
+</table>

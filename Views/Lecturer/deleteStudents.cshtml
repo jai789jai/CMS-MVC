@@ -1,0 +1,71 @@
+@model CMS.Models.StudentCollege
+
+@{
+    ViewData["Title"] = "deleteStudents";
+}
+
+<br><br>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Birthdate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Birthdate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Rollno)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Rollno)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Degree)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Degree)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Department)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Department)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Batch)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Batch)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Cgpa)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cgpa)
+        </dd>
+    </dl>
+    
+    <form asp-action="deleteStudents">
+        <input type="submit" value="Delete" class="btn btn-danger" /> 
+    </form>
+</div>

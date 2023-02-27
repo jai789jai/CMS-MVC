@@ -1,0 +1,57 @@
+@model CMS.Models.BookCollege
+
+@{
+    ViewData["Title"] = "addBooks";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="addBooks">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group row">
+                <label asp-for="BookId" class="control-label">BookId &nbsp; &nbsp; &nbsp; &nbsp;</label>
+                <div class="col-sm-10">
+                    <input asp-for="BookId" class="form-control" type="text" />
+                    <span asp-validation-for="BookId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="BookName" class="control-label">BookName &nbsp; &nbsp; &nbsp; &nbsp;</label>
+                <div class="col-sm-10">
+                    <input asp-for="BookName" class="form-control" type="text" />
+                    <span asp-validation-for="BookName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Author" class="control-label">Author&nbsp; &nbsp; &nbsp; &nbsp;</label>
+                <div class="col-sm-10">
+                    <input asp-for="Author" class="form-control" type="text" />
+                    <span asp-validation-for="Author" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Status" class="control-label">Status&nbsp; &nbsp; &nbsp; &nbsp;</label>
+                <div class="col-sm-10">
+                    <select asp-for="Status" class="form-control" type="text">
+                    <option value="unavailable" >unavailable</option >
+                    <option value="available" >available</option >
+                <span asp-validation-for="Status" class="text-danger"></span>
+                </select>
+            </div>
+            <div class="form-group row">
+                <label asp-for="IssuedTo" class="control-label">IssuedTo&nbsp; &nbsp; &nbsp; &nbsp;</label>
+                <div class="col-sm-10">
+                    <input asp-for="IssuedTo" class="form-control" type="text" />
+                    <span asp-validation-for="IssuedTo" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

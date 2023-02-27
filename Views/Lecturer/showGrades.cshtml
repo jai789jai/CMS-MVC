@@ -1,0 +1,51 @@
+@model IEnumerable<CMS.Models.GradeCollege>
+
+@{
+    ViewData["Title"] = "showGrades";
+}
+
+<nav class="navbar">
+    
+  <form class="form-inline" asp-action="showGrades" asp-controller="Lecturer">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name='keyword'>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+  
+</nav>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Grade)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grade)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "editGrades","Lecturer", new {id=item.Email, subject=item.Subject }) 
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "deleteGrades","Lecturer", new { id=item.Email, id_2=item.Subject })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

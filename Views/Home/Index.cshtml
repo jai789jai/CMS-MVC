@@ -1,0 +1,20 @@
+﻿@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor;
+@{
+    ViewData["Title"] = "Home Page";
+}
+<br><br>
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Welcome to the Landing page of the CMS project.</p>
+    @if(HttpContextAccessor.HttpContext.Session.GetString("Type")!=null)
+    {
+        <p><text class="badge text-white bg-dark">Thank for using our portal</text></p>
+    }else
+    {
+        <p>Please <a asp-controller="Login" asp-action="login" class="badge text-white bg-dark">Login</a> to Continue.</p>
+    }
+    
+    <br><br><br>
+    <img src="/images/logo.png" alt="NIT-DELHI" height=200 width=200 >
+</div>
